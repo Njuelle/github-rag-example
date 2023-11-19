@@ -9,6 +9,7 @@ export async function loadGithubDocuments({
   const loader = new GithubRepoLoader(repositoryUrl, {
     branch: "main",
     recursive: true,
+    ignoreFiles: ["bun.lockb"],
   });
 
   return loader.load();
