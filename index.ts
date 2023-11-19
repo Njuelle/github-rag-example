@@ -5,7 +5,7 @@ import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { RetrievalQAChain } from "langchain/chains";
 
-const repositoryUrl = "url";
+const repositoryUrl = "https://github.com/Njuelle/github-rag-example";
 
 const documents = await loadGithubDocuments({ repositoryUrl });
 
@@ -25,7 +25,8 @@ const vectorStore = await MemoryVectorStore.fromDocuments(
   new OpenAIEmbeddings()
 );
 
-const query = "Quels sont les parametres de la fonction 'enrichDocument' ?";
+const query =
+  "Peux tu me donner une explication de la fonction 'enrichDocument' ?";
 
 const { text } = await RetrievalQAChain.fromLLM(
   model,
